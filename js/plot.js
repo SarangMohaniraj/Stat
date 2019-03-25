@@ -373,7 +373,8 @@ document.querySelector(".bottomnav").innerHTML +=
 	</div>
 	</div>
 	<button id="filter" type="submit" class="btn btn-primary">Filter</button>
-	<button id="reset" type="submit" class="btn btn-primary">Reset</button>`;
+	<button id="reset" type="submit" class="btn btn-primary">Reset</button>
+	<button id="export" type="submit" class="btn btn-primary">Export</button>`;
 if(type == "boxplot" && !document.querySelector("#extras .card-body").contains(document.getElementById("modified-group"))){
 	document.querySelector("#extras .card-body").innerHTML += 
 	`<div class="input-group" id="modified-group">
@@ -557,4 +558,11 @@ document.querySelector("#nav-item-boxplot").onclick = () => {
 	overlap = false;
 	document.querySelector("#pooled").checked = false;
 	setup(datasets,summaries);
+};
+document.querySelector("#export").onclick = () => {
+	image = c.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+	var link = document.createElement('a');
+	link.download = "plot.png";
+	link.href = image;
+	link.click();
 };
