@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Frequency plots">
+        <meta name="keywords" content="">
+        <meta name="author" content="Sarang Mohaniraj">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Frequency Plots</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<!-- Personal CSS -->
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand icon" href="index.html">Stat</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="index.html">Upload</a>
+                    <a class="nav-item nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plots</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a id="nav-item-frequency" class="dropdown-item">Frequency</a>
+                        <a id="nav-item-boxplot" class="dropdown-item" onclick='sessionStorage.setItem("type", "boxplot"); type = "boxplot"; console.log(type); setup(datasets,summaries)'>Box Plot</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <canvas class="plot"></canvas>
+        <div class="sidenav" id="sidebar"></div>
+        <div class="bottomnav"></div>
+
+        <script src="vendor/jquery-3.3.1.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="js/plot.js"></script>
+    </body>
+</html>

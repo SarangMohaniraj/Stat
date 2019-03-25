@@ -1,0 +1,49 @@
+body{
+	font-family: "Comic Sans MS";
+}
+p{
+	line-height: .8;
+}
+text {
+	display: block;
+}
+/********************************* Input ****************************************/
+.feedback{
+	margin: .08rem .5rem;
+}
+#upload-text{
+	min-height: 50vh;
+}
+/********************************* Alert ****************************************/
+.alert{
+	display: none;
+}
+
+
+/********************************* Variables ****************************************/
+.selection{
+	display: none;
+}
+#variables{
+	margin: 2rem;
+}
+
+/********************************* Plot.js ****************************************/
+#sidebar{
+	position: fixed;
+	z-index: 1;
+	margin-top: 4rem;
+	right: 2rem;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1; /* Fix for IE7 */
+	*display: inline; /* Fix for IE7 */
+	text-align: center;
+}
+.card{
+	text-align: left;
+}
+.bottomnav{
+	text-align: center;
+	margin: 50px;
+}

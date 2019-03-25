@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Stat graphs">
+	<meta name="keywords" content="">
+	<meta name="author" content="Sarang Mohaniraj">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stat Plots</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!-- Personal CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand icon" href="index.html">Stat</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav ml-auto">
+				<a class="nav-item nav-link" href="index.html">Upload</a>
+				<a class="nav-item nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plots</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" onclick='sessionStorage.setItem("type", "frequency");' href="plot.html">Frequency</a>
+					<a class="dropdown-item" onclick='sessionStorage.setItem("type", "boxplot");' href="plot.html">Box Plot</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+
+	<section id="upload">
+		<div class="container" id=upload-container>
+			<p>
+				<span data-toggle="tooltip" data-placement="top" title="Extract JSON from file"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#upload-file-container">Upload File</button></span>
+				<span data-toggle="tooltip" data-placement="top" title="Extract JSON from text"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#upload-json-container">Paste</button></span>
+				<span data-toggle="tooltip" data-placement="top" title="Extract JSON from URL"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#upload-url-container">URL</button></span>
+			</p>
+
+			<div class="collapse show" id="upload-file-container" data-parent="#upload-container">
+				<!-- <div class="card card-body"> -->
+					<div class="custom-file">
+						<input type="file" class="custom-file-input btn" id="upload-file">
+						<label class="custom-file-label" for="upload-file">Choose file</label>
+						<div id="feedback-file" class="feedback"></div>
+					</div>
+				<!-- </div> -->
+			</div>
+			<div class="collapse" id="upload-json-container" data-parent="#upload-container">
+				<!-- <div class="card card-body"> -->
+					<div class="input-group">
+						<textarea id="upload-text" class="form-control" aria-label="Type or paste JSON array" placeholder="Type or paste JSON array"></textarea>
+						<div class="input-group-append">
+							<button class="input-group-text btn input-group-btn" id="upload-text-btn">Load</button>
+						</div>
+						<div id="feedback-text" class="feedback"></div>
+					</div>
+				<!-- </div> -->
+				</div>
+				<div class="input-group mb-3 collapse" id="upload-url-container" data-parent="#upload-container">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">https://</span>
+					</div>
+					<input type="text" class="form-control" id="upload-url" aria-describedby="basic-addon3" placeholder="URL containing a raw JSON array">
+					<div class="input-group-append">
+						<button class="input-group-text btn input-group-btn" id="upload-url-btn">Load</button>
+					</div>
+					<div id="feedback-url" class="feedback"></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="variables">
+			<div class="container">
+				<p class="lead selection">Select the quantitative variable.<small> (The variable you want to graph)<small> You need to double click.</small></small><div id="quantitative" class="btn-group btn-group-toggle" data-toggle="buttons"></div></p>
+				<p class="lead selection">Select the categorical variable.<small> (The variable which identifies each dataset) <small>You need to double click.</small></small><div id="categorical" class="btn-group btn-group-toggle" data-toggle="buttons"></div></p>
+			</div>
+		</section>
+
+
+
+
+		<div class="container-fluid fixed-bottom">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10 col-md-offset-1">
+					<div class="alert alert-danger alert-dismissible fade text-center show" role="alert" id="alert-invalid">
+						<strong>Invalid file type!</strong> You should upload a JSON or text file that contains a JSON array.
+						<button type="button" class="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<script src="vendor/jquery-3.3.1.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/stat.js"></script>
+<script type="text/javascript" src="js/upload.js"></script>
+
+
+</body>
+</html>
